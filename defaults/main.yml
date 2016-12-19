@@ -1,0 +1,4 @@
+---
+# defaults file for mariadb
+mariadb_bind_address: 0.0.0.0
+mariadb_listen_port: 3306

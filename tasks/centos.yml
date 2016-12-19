@@ -1,0 +1,33 @@
+---
+
+- name: install mariadb-server mariadb
+  yum: name={{ item }} state=present
+  with_items:
+    - mariadb-server
+    - mariadb
+    - MySQL-python
+
+- name: template /etc/my.cnf
+  template: src=etc/my.cnf.j2 dest=/etc/my.cnf mode=644
+  notify: restart mariadb
+
+- name: start and enable service
+  service: name=mariadb state=started enabled=true
+
+# user settings
+
+# mysql_user module need "MySQL-python" on CentOS or "python-mysqld" on Ubuntu
+- name: set password for root
+  mysql_user: name=root password={{ mariadb_root_password }} check_implicit_admin=true
+
+- name: put crendentials in ~/.my.cnf file
+  template: src=credentials.j2 dest=~/.my.cnf mode=600
+
+- name: add or remove users
+  mysql_user: name={{ item.name }}
+              host={{ item.host | default("localhost") }}
+              password={{ item.password }}
+              priv={{ item.privilege}}
+              state={{ item.state }}
+  with_items: "{{ mariadb_users | default([])}}"
+  when: mariadb_users is defined
