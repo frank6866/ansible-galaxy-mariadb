@@ -8,8 +8,28 @@ symbolic-links=0
 # customize your systemd unit file for mariadb according to the
 # instructions in http://fedoraproject.org/wiki/Systemd
 
+{% if mariadb_listen_port is defined %}
 port={{ mariadb_listen_port }}
+{% endif %}
+
+{% if mariadb_bind_address is defined %}
 bind-address={{ mariadb_bind_address }}
+{% else %}
+bind-address={{ ansible_default_ipv4.address }}
+{% endif %}
+
+{% if mariadb_open_files_limit is defined %}
+open_files_limit={{ mariadb_open_files_limit }}
+{% endif %}
+
+{% if mariadb_max_connections is defined %}
+max_connections={{ mariadb_max_connections }}
+{% endif %}
+
+{% if mariadb_skip_name_resolve is undefined or mariadb_skip_name_resolve == true %}
+skip-name-resolve
+{% endif %}
+
 
 [mysqld_safe]
 log-error=/var/log/mariadb/mariadb.log

@@ -1,11 +1,2 @@
 ---
 # vars file for mariadb
-
-mariadb_root_password: Change@Me
-
-mariadb_users:
-  - name: frank6866
-    host: "%"
-    password: Change#me
-    privilege: "*.*:ALL"
-    state: present

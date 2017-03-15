@@ -6,22 +6,27 @@ Install mariadb.
 
 Role Variables
 --------------
+没有必须设置的变量,可选的可以设置的变量如下:
 
 ```
-# optional vars in default/main.yml
-mariadb_bind_address: 0.0.0.0
-mariadb_listen_port: 3307
+mariadb_open_files_limit: 2048
+mariadb_max_connections: 1024
 
-# optional vars in vars/main.yml
+mariadb_root_password: change_me
+
+mariadb_databases:
+  - keystone
+  - glance
+  - nova_api
+  - nova
+  - neutron
+
 mariadb_users:
-  - name: frank6866
+  - name: keystone
+    password: change_me
     host: "%"
-    password: Change#me
-    privilege: "*.*:ALL"
+    privilege: "keystone.*:ALL"
     state: present
-
-# required vars
-mariadb_root_password: Change@Me
 ```
 
 

@@ -1,4 +1,80 @@
 ---
 # defaults file for mariadb
-mariadb_bind_address: 0.0.0.0
-mariadb_listen_port: 3306
+# mariadb_bind_address: 0.0.0.0
+# mariadb_listen_port: 3306
+# mariadb_skip_name_resolve: true
+# mariadb_open_files_limit: 2048
+# mariadb_max_connections: 1024
+
+mariadb_root_password: change_me
+
+#
+#mariadb_databases:
+#  - keystone
+#  - glance
+#  - cinder
+#  - nova_api
+#  - nova
+#  - neutron
+#
+#mariadb_users:
+#  - name: keystone
+#    password: change_me
+#    host: "%"
+#    privilege: "keystone.*:ALL"
+#    state: present
+#  - name: keystone
+#    password: change_me
+#    host: "localhost"
+#    privilege: "keystone.*:ALL"
+#    state: present
+#  - name: glance
+#    password: change_me
+#    host: "%"
+#    privilege: "glance.*:ALL"
+#    state: present
+#  - name: glance
+#    password: change_me
+#    host: "localhost"
+#    privilege: "glance.*:ALL"
+#    state: present
+#  - name: cinder
+#    password: change_me
+#    host: "%"
+#    privilege: "cinder.*:ALL"
+#    state: present
+#  - name: cinder
+#    password: change_me
+#    host: "localhost"
+#    privilege: "cinder.*:ALL"
+#    state: present
+#  - name: nova
+#    password: change_me
+#    host: "%"
+#    privilege: "nova.*:ALL"
+#    state: present
+#  - name: nova
+#    password: change_me
+#    host: "localhost"
+#    privilege: "nova.*:ALL"
+#    state: present
+#  - name: nova_api
+#    password: change_me
+#    host: "%"
+#    privilege: "nova_api.*:ALL"
+#    state: present
+#  - name: nova_api
+#    password: change_me
+#    host: "localhost"
+#    privilege: "nova_api.*:ALL"
+#    state: present
+#  - name: neutron
+#    password: change_me
+#    host: "%"
+#    privilege: "neutron.*:ALL"
+#    state: present
+#  - name: neutron
+#    password: change_me
+#    host: "localhost"
+#    privilege: "neutron.*:ALL"
+#    state: present
