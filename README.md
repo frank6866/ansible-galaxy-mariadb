@@ -6,12 +6,11 @@ Install mariadb.
 
 Role Variables
 --------------
-没有必须设置的变量,可选的可以设置的变量如下:
+The variables are all optional, the default password is 'change_me' if you donot set it.
+
+eg:
 
 ```
-mariadb_open_files_limit: 2048
-mariadb_max_connections: 1024
-
 mariadb_root_password: change_me
 
 mariadb_databases:
@@ -27,6 +26,10 @@ mariadb_users:
     host: "%"
     privilege: "keystone.*:ALL"
     state: present
+
+# mariadb_open_files_limit should large than mariadb_max_connections
+mariadb_open_files_limit: 2048
+mariadb_max_connections: 1024
 ```
 
 
