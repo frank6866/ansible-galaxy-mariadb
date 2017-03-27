@@ -1,7 +1,7 @@
-mariadb
-=======
+mariadb standalone
+=====================
 
-Install mariadb.
+Install mariadb in standalone mode.
 
 
 Role Variables
