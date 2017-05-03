@@ -1,6 +1,6 @@
 galaxy_info:
   author: frank6866
-  description: install mariadb
+  description: Deploying mariadb in standalone mode
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
